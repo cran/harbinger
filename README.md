@@ -7,6 +7,7 @@
 
 ![GitHub Repo
 stars](https://img.shields.io/github/stars/cefet-rj-dal/harbinger?logo=Github)
+![GitHub Repo stars](https://cranlogs.r-pkg.org/badges/harbinger)
 <!-- badges: end -->
 
 Harbinger is a framework for event detection in time series. It provides
@@ -32,8 +33,17 @@ add novel methods to the framework.
 
 ## Installation
 
-You can install the development version of harbinger from
-[GitHub](https://github.com) with:
+The latest version of Harbinger at CRAN is available at:
+<https://CRAN.R-project.org/package=harbinger>
+
+You can install the stable version of Harbinger from CRAN with:
+
+``` r
+install.packages("harbinger")
+```
+
+You can install the development version of Harbinger from GitHub
+<https://github.com/cefet-rj-dal/harbinger> with:
 
 ``` r
 # install.packages("devtools")
@@ -55,3 +65,7 @@ library(harbinger)
 #>   as.zoo.data.frame zoo
 ## basic example code
 ```
+
+## Bugs and new features request
+
+<https://github.com/cefet-rj-dal/harbinger/issues>
