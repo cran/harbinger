@@ -14,7 +14,7 @@
 #'dataset <- har_examples$example15
 #'head(dataset)
 #'
-#'# setting up time series regression model
+#'# setting up motif discovery method
 #'model <- hmo_mp("stamp", 4, 3)
 #'
 #'# fitting the model
@@ -24,7 +24,7 @@
 #'detection <- detect(model, dataset$serie)
 #'
 #'# filtering detected events
-#'print(detection |> dplyr::filter(event==TRUE))
+#'print(detection[(detection$event),])
 #'
 #'@export
 hmo_mp <- function(mode = "stamp", w, qtd) {

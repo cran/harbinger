@@ -13,7 +13,7 @@
 #'dataset <- har_examples$example14
 #'head(dataset)
 #'
-#'# setting up time series regression model
+#'# setting up change point method
 #'model <- hcp_garch()
 #'
 #'# fitting the model
@@ -23,7 +23,7 @@
 #'detection <- detect(model, dataset$serie)
 #'
 #'# filtering detected events
-#'print(detection |> dplyr::filter(event==TRUE))
+#'print(detection[(detection$event),])
 #'
 #'@export
 hcp_garch <- function(sw_size = 5) {
