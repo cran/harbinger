@@ -1,6 +1,6 @@
 Package: harbinger
 Title: A Unified Time Series Event Detection Framework
-Version: 1.0.747
+Version: 1.0.767
 Authors@R: 
   c(
         person(given = "Eduardo", family = "Ogasawara", role = c("aut", "ths", "cre"), 
@@ -29,9 +29,9 @@ URL: https://github.com/cefet-rj-dal/harbinger,
 Encoding: UTF-8
 RoxygenNote: 7.3.1
 Imports: stats, daltoolbox, tsmp, dtwclust, rugarch, forecast, ggplot2,
-        changepoint, strucchange, stringr, dplyr
+        changepoint, strucchange, stringr, wavelets, hht, dplyr
 NeedsCompilation: no
-Packaged: 2024-03-26 06:14:45 UTC; gpca
+Packaged: 2024-03-31 00:36:30 UTC; gpca
 Author: Eduardo Ogasawara [aut, ths, cre]
     (<https://orcid.org/0000-0002-0466-0626>),
   Antonio Castro [aut],
@@ -53,4 +53,4 @@ Author: Eduardo Ogasawara [aut, ths, cre]
     [cph]
 Maintainer: Eduardo Ogasawara <eogasawara@ieee.org>
 Repository: CRAN
-Date/Publication: 2024-03-26 07:00:03 UTC
+Date/Publication: 2024-03-31 22:10:02 UTC
