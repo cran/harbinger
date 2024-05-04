@@ -10,10 +10,10 @@
 #'library(daltoolbox)
 #'
 #'#loading the example database
-#'data(har_examples)
+#'data(examples_anomalies)
 #'
-#'#Using example 1
-#'dataset <- har_examples$example1
+#'#Using simple example
+#'dataset <- examples_anomalies$simple
 #'head(dataset)
 #'
 #'# setting up time series emd detector
@@ -30,13 +30,30 @@
 #'
 #'@export
 hanr_emd <- function(noise = 0.1, trials = 5) {
+  har_residuals <- function(value) {
+    # EMD does not square residual
+    return(value)
+  }
+
+  har_outliers_idx <- function(data){
+    # EMD computes the probability of residual being an anomaly
+    probabilities <- (1 - (data / max(abs(data))))
+    index.cp <- which(abs(probabilities)<2.698*sd(probabilities, na.rm=TRUE))
+    return (index.cp)
+  }
+
   obj <- harbinger()
   obj$noise <- noise
   obj$trials <- trials
 
+  obj$har_residuals <- har_residuals
+  obj$har_outliers_idx <- har_outliers_idx
+
   class(obj) <- append("hanr_emd", class(obj))
   return(obj)
 }
+
+
 
 #'@importFrom stats median
 #'@importFrom stats sd
@@ -53,13 +70,13 @@ detect.hanr_emd <- function(obj, serie, ...) {
 
   obj$model <- ceemd.result
 
-
   sum_high_freq <- obj$model[["imf"]][,1]
 
-  noise <- sum_high_freq # obj$har_residuals(sum_high_freq)
+  res <- sum_high_freq
 
-  anomalies <- obj$har_outliers_idx(noise)
-  anomalies <- obj$har_outliers_group(anomalies, length(noise))
+  res <- obj$har_residuals(res)
+  anomalies <- obj$har_outliers_idx(res)
+  anomalies <- obj$har_outliers_group(anomalies, length(res))
 
   detection <- obj$har_restore_refs(obj, anomalies = anomalies)
 

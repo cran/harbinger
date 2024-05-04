@@ -5,10 +5,10 @@
 #'library(daltoolbox)
 #'
 #'#loading the example database
-#'data(har_examples_multi)
+#'data(examples_harbinger)
 #'
 #'#Using the time series 9
-#'dataset <- har_examples_multi$example1
+#'dataset <- examples_harbinger$multidimensional
 #'head(dataset)
 #'
 #'# establishing hmu_pca method
@@ -17,7 +17,7 @@
 #'# fitting the model using the two columns of the dataset
 #'model <- fit(model, dataset[,1:2])
 #'
-#'# making detections using hmu_pca
+#'# making detections
 #'detection <- detect(model, dataset[,1:2])
 #'
 #'# filtering detected events

@@ -10,10 +10,10 @@
 #'library(daltoolbox)
 #'
 #'#loading the example database
-#'data(har_examples)
+#'data(examples_anomalies)
 #'
-#'#Using example 1
-#'dataset <- har_examples$example1
+#'#Using simple example
+#'dataset <- examples_anomalies$simple
 #'head(dataset)
 #'
 #'# setting up time series emd detector
@@ -30,14 +30,13 @@
 #'
 #'@export
 hanr_remd <- function(noise = 0.1, trials = 5) {
-  obj <- harbinger()
-  obj$noise <- noise
-  obj$trials <- trials
-
+  obj <- hanr_emd(noise, trials)
   class(obj) <- append("hanr_remd", class(obj))
   return(obj)
 }
 
+#'@importFrom stats median
+#'@importFrom stats sd
 fc_roughness <- function(x) {
   firstD = diff(x)
   normFirstD = (firstD - mean(firstD)) / sd(firstD)
@@ -88,13 +87,10 @@ detect.hanr_remd <- function(obj, serie, ...) {
   adjust <- as.vector(adjust)
 
   # Calculation of inverse probability
-  delta <- abs(adjust - sum_high_freq)
-  noise <- delta # obj$har_residuals(delta)
-
-  anomalies <- obj$har_outliers_idx(noise)
-  anomalies <- obj$har_outliers_group(anomalies, length(noise))
-
-  anomalies[1:max(c(model$p, model$q, model$d))] <- FALSE
+  res <- abs(adjust - sum_high_freq)
+  probabilidades <-(1 - res / max(res))
+  anomalies <- which(abs(probabilidades)<2.698*sd(probabilidades, na.rm=TRUE))
+  anomalies <- obj$har_outliers_group(anomalies, length(res))
 
   detection <- obj$har_restore_refs(obj, anomalies = anomalies)
 
