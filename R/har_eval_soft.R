@@ -80,6 +80,11 @@ soft_scores <- function(detection, event, k){
 #'@export
 evaluate.har_eval_soft <- function(obj, detection, event, ...) {
   detection[is.na(detection)] <- FALSE
+
+  if((sum(detection)==0) || (sum(event)==0)){
+    return(evaluate(har_eval(), detection, event))
+  }
+
   scores <- soft_scores(detection, event, obj$sw_size)
 
   m <- length(which(event))
