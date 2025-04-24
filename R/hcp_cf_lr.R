@@ -36,7 +36,7 @@ hcp_cf_lr <- function(sw_size = 30) {
 #'@importFrom stats lm
 #'@importFrom stats na.omit
 #'@importFrom stats residuals
-#'@export
+#'@exportS3Method detect hcp_cf_lr
 detect.hcp_cf_lr <- function(obj, serie, ...) {
   linreg <- function(serie) {
     data <- data.frame(t = 1:length(serie), x = serie)

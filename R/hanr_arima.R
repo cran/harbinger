@@ -38,7 +38,7 @@ hanr_arima <- function() {
 #'@importFrom forecast auto.arima
 #'@importFrom stats residuals
 #'@importFrom stats na.omit
-#'@export
+#'@exportS3Method fit hanr_arima
 fit.hanr_arima <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation",call. = FALSE)
 
@@ -63,7 +63,7 @@ fit.hanr_arima <- function(obj, serie, ...) {
 #'@importFrom forecast auto.arima
 #'@importFrom stats residuals
 #'@importFrom stats na.omit
-#'@export
+#'@exportS3Method detect hanr_arima
 detect.hanr_arima <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation",call. = FALSE)
 

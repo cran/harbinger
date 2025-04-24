@@ -83,7 +83,7 @@ median_point <- function(cp){
 #'@importFrom zoo rollapply
 #'@importFrom daltoolbox transform
 #'@importFrom daltoolbox fit_curvature_max
-#'@export
+#'@exportS3Method detect hanr_red
 detect.hanr_red <- function(obj, serie, ...) {
   if (is.null(serie))
     stop("No data was provided for computation", call. = FALSE)

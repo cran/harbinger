@@ -38,12 +38,10 @@ hanr_emd <- function(noise = 0.1, trials = 5) {
   return(obj)
 }
 
-
-
 #'@importFrom stats median
 #'@importFrom stats sd
 #'@importFrom hht CEEMD
-#'@export
+#'@exportS3Method detect hanr_emd
 detect.hanr_emd <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation", call. = FALSE)
 

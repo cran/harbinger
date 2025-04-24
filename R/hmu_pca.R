@@ -35,7 +35,7 @@ hmu_pca <- function() {
 
 #'@importFrom stats na.omit
 #'@importFrom stats princomp
-#'@export
+#'@exportS3Method detect hmu_pca
 detect.hmu_pca <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation", call. = FALSE)
 
@@ -59,7 +59,6 @@ detect.hmu_pca <- function(obj, serie, ...) {
   anomalies <- obj$har_outliers_check(anomalies, res)
 
   detection <- obj$har_restore_refs(obj, anomalies = anomalies, res = res)
-
 
   return(detection)
 }

@@ -33,7 +33,7 @@ hcp_pelt <- function() {
 }
 
 #'@importFrom changepoint cpt.meanvar
-#'@export
+#'@exportS3Method detect hcp_pelt
 detect.hcp_pelt <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation", call. = FALSE)
 

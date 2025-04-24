@@ -1,82 +1,101 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# <img src='https://raw.githubusercontent.com/cefet-rj-dal/harbinger/master/inst/logo.png' align='centre' height='150' width='129'/> Harbinger
+# <img src='https://raw.githubusercontent.com/cefet-rj-dal/harbinger/master/inst/logo.png' alt='Logo do pacote Harbinger' align='centre' height='150' width='129'/> Harbinger
 
 <!-- badges: start -->
 
-![GitHub Repo
-stars](https://img.shields.io/github/stars/cefet-rj-dal/harbinger?logo=Github)
-![GitHub Repo stars](https://cranlogs.r-pkg.org/badges/harbinger)
+![GitHub
+Stars](https://img.shields.io/github/stars/cefet-rj-dal/harbinger?logo=Github)
+![CRAN Downloads](https://cranlogs.r-pkg.org/badges/harbinger)
 <!-- badges: end -->
 
-Harbinger is a framework for event detection in time series. It provides
-an integrated environment for time series anomaly detection, change
-points, and motif discovery. It provides a broad range of event
-detection methods and functions for plotting and evaluating event
-detections.
+**Harbinger** is a framework for event detection in time series. It
+provides an integrated environment for anomaly detection, change point
+detection, and motif discovery. Harbinger offers a broad range of
+methods and functions for plotting and evaluating detected events.
 
-In the anomaly classes, methods are based on machine learning model
-deviation (Conv1D, ELM, MLP, LSTM, Random Regression Forest, SVM),
-machine learning classification model (Decision Tree, KNN, MLP, Naive
-Bayes, Random Forest, SVM), clustering (kmeans and DTW) and statistical
-methods (ARIMA, FBIAD, GARCH).
+For anomaly detection, methods are based on: - Machine learning model
+deviation: Conv1D, ELM, MLP, LSTM, Random Regression Forest, and SVM -
+Classification models: Decision Tree, KNN, MLP, Naive Bayes, Random
+Forest, and SVM - Clustering: k-means and DTW - Statistical techniques:
+ARIMA, FBIAD, GARCH
 
-In the change points classes, methods are based on linear regression,
-ARIMA, ETS, GARCH, AMOC, ChowTest, BinSeg, GFT, PELT.
+For change point detection, Harbinger includes: - Linear regression,
+ARIMA, ETS, and GARCH-based approaches - Classic methods such as AMOC,
+ChowTest, Binary Segmentation (BinSeg), GFT, and PELT
 
-In the motifs classes, methods are based on Hash and Matrix Profile.
-There are specific methods for multivariate series. The evaluation of
-detections includes both traditional and soft computing.
+For motif discovery, it provides: - Methods based on Hashing and Matrix
+Profile
 
-Harbinger architecture is based on Experiment Lines and is built on top
-of the DAL Toolbox. Such an organization makes it easy to customize and
-add novel methods to the framework.
+Harbinger also supports **multivariate time series analysis** and
+**event evaluation** using both traditional and soft computing metrics.
+
+The architecture of Harbinger is based on **Experiment Lines** and is
+built on top of the [DAL
+Toolbox](https://github.com/cefet-rj-dal/daltoolbox). This design makes
+it easy to extend and integrate new methods into the framework.
+
+------------------------------------------------------------------------
 
 ## Installation
 
-The latest version of Harbinger at CRAN is available at:
-<https://CRAN.R-project.org/package=harbinger>
-
-You can install the stable version of Harbinger from CRAN with:
+The latest version of Harbinger is available on CRAN:
 
 ``` r
 install.packages("harbinger")
 ```
 
-You can install the development version of Harbinger from GitHub
-<https://github.com/cefet-rj-dal/harbinger> with:
+You can install the development version from GitHub:
 
 ``` r
 # install.packages("devtools")
 library(devtools)
-devtools::install_github("cefet-rj-dal/harbinger", force=TRUE, upgrade="never")
+devtools::install_github("cefet-rj-dal/harbinger", force = TRUE, upgrade = "never")
 ```
+
+------------------------------------------------------------------------
 
 ## Examples
 
-Examples of Harbinger are organized according to general functions
-(example datasets and metrics), anomalies, change points, motifs, and
-multivariate anomaly detection.
+Examples of Harbinger are organized by application area:
 
-General: <https://github.com/cefet-rj-dal/harbinger/tree/master/general>
-
-Anomalies:
-<https://github.com/cefet-rj-dal/harbinger/tree/master/anomalies>
-
-Change points:
-<https://github.com/cefet-rj-dal/harbinger/tree/master/change_point>
-
-Motifs: <https://github.com/cefet-rj-dal/harbinger/tree/master/motifs>
+- [General](https://github.com/cefet-rj-dal/harbinger/tree/master/general)
+- [Anomalies](https://github.com/cefet-rj-dal/harbinger/tree/master/anomalies)
+- [Change
+  points](https://github.com/cefet-rj-dal/harbinger/tree/master/change_point)
+- [Motifs](https://github.com/cefet-rj-dal/harbinger/tree/master/motifs)
 
 ``` r
 library(harbinger)
 #> Registered S3 method overwritten by 'quantmod':
 #>   method            from
 #>   as.zoo.data.frame zoo
-## basic example code
+#> Registered S3 methods overwritten by 'forecast':
+#>   method  from 
+#>   head.ts stats
+#>   tail.ts stats
+
+#loading the example database
+data(examples_anomalies)
+
+#model
+model <- harbinger()
+
+#stub detector
+detection <- detect(model, examples_anomalies$simple$serie)
+
+#plot anomalies
+har_plot(detection, examples_anomalies$simple$serie, detection)
 ```
 
-## Bugs and new features request
+<img src="man/figures/README-example-1.png" width="100%" />
+
+------------------------------------------------------------------------
+
+## Bug reports and feature requests
+
+If you find any bugs or would like to suggest new features, please
+submit an issue here:
 
 <https://github.com/cefet-rj-dal/harbinger/issues>

@@ -33,7 +33,7 @@ hcp_amoc <- function() {
 }
 
 #'@importFrom changepoint cpt.meanvar
-#'@export
+#'@exportS3Method detect hcp_amoc
 detect.hcp_amoc <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation", call. = FALSE)
 

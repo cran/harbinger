@@ -38,7 +38,7 @@ hcp_scp <- function(sw_size = 30) {
 
 #'@importFrom stats lm
 #'@importFrom stats na.omit
-#'@export
+#'@exportS3Method detect hcp_scp
 detect.hcp_scp <- function(obj, serie, ...) {
   analyze_window <- function(data, offset) {
     n <- length(data)
@@ -77,7 +77,7 @@ detect.hcp_scp <- function(obj, serie, ...) {
 
   change_point <- c(rep(FALSE, obj$offset-1), change_point, rep(FALSE, obj$sw_size-obj$offset))
 
-  detection <- obj$har_restore_refs(obj, change_point = change_point)
+  detection <- obj$har_restore_refs(obj, change_point = change_point, res = res)
 
   return(detection)
 }

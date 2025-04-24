@@ -38,7 +38,7 @@ hcp_cf_ets <- function(sw_size = 7) {
 #'@importFrom stats ts
 #'@importFrom stats residuals
 #'@importFrom forecast ets
-#'@export
+#'@exportS3Method detect hcp_cf_ets
 detect.hcp_cf_ets <- function(obj, serie, ...) {
   obj <- obj$har_store_refs(obj, serie)
 

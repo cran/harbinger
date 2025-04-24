@@ -38,7 +38,7 @@ har_ensemble <- function(...) {
 }
 
 #'@importFrom stats na.omit
-#'@export
+#'@exportS3Method fit har_ensemble
 fit.har_ensemble <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation",call. = FALSE)
 
@@ -54,7 +54,7 @@ fit.har_ensemble <- function(obj, serie, ...) {
 }
 
 #'@importFrom stats na.omit
-#'@export
+#'@exportS3Method detect har_ensemble
 detect.har_ensemble <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation", call. = FALSE)
 

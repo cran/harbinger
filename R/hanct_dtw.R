@@ -41,7 +41,7 @@ hanct_dtw <- function(seq = 1, centers=NA) {
 
 #'@importFrom dtwclust tsclust
 #'@importFrom stats na.omit
-#'@export
+#'@exportS3Method fit hanct_dtw
 fit.hanct_dtw <- function(obj, serie, ...) {
   if (is.na(obj$centers))
     obj$centers <- ceiling(log(length(serie), 10))
@@ -59,7 +59,7 @@ fit.hanct_dtw <- function(obj, serie, ...) {
 }
 
 #'@importFrom stats na.omit
-#'@export
+#'@exportS3Method detect hanct_dtw
 detect.hanct_dtw <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation", call. = FALSE)
 

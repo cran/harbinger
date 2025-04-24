@@ -38,7 +38,7 @@ hdis_mp <- function(mode = "stamp", w, qtd) {
 
 #'@importFrom tsmp tsmp
 #'@importFrom tsmp find_motif
-#'@export
+#'@exportS3Method detect hdis_mp
 detect.hdis_mp <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation", call. = FALSE)
 

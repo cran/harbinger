@@ -37,7 +37,7 @@ har_eval <- function() {
 }
 
 #'@importFrom daltoolbox evaluate
-#'@export
+#'@exportS3Method evaluate har_eval
 evaluate.har_eval <- function(obj, detection, event, ...) {
   detection[is.na(detection)] <- FALSE
   TP <- sum(detection & event)
@@ -78,7 +78,7 @@ evaluate.har_eval <- function(obj, detection, event, ...) {
 
 
 #'@importFrom daltoolbox evaluate
-#'@export
+#'@exportS3Method evaluate harbinger
 evaluate.harbinger <- function(obj, detection, event, ...) {
   return(har_eval(), detection, event)
 }

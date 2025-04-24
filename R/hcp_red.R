@@ -88,7 +88,7 @@ median_point <- function(cp){
 #'@importFrom zoo rollapply
 #'@importFrom daltoolbox transform
 #'@importFrom daltoolbox fit_curvature_max
-#'@export
+#'@exportS3Method detect hcp_red
 detect.hcp_red <- function(obj, serie, ...) {
   if (is.null(serie))
     stop("No data was provided for computation", call. = FALSE)
@@ -199,7 +199,7 @@ detect.hcp_red <- function(obj, serie, ...) {
 
 	sd3 <- zoo::rollapply(sd2, width = list(c(c(-15:-1), c(1:15))), sd, by = 1)
 	sd3 <- c(rep(NA,15),sd3,rep(NA,15))
- 
+
     ## resuming the positions of the original series
     i <- rep(NA, san_size)
     i[no_na] <- sd3
@@ -215,7 +215,7 @@ detect.hcp_red <- function(obj, serie, ...) {
 
     i <- rep(NA, san_size)
     i[no_na] <- obj$model_cp$residue
-	
+
 	#trend change points according to generalized fluctuation test
     gft_model <- fit(hcp_gft(), i)
     cp_trend <- detect(gft_model, i)

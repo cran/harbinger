@@ -56,7 +56,7 @@ harbinger <- function() {
   hutils <- harutils()
   obj$har_distance <- hutils$har_distance_l2
   obj$har_outliers <- hutils$har_outliers_boxplot
-  obj$har_outliers_check <- hutils$har_outliers_checks_highgroup
+  obj$har_outliers_check <- hutils$har_outliers_checks_firstgroup
 
   return(obj)
 }
@@ -74,13 +74,13 @@ detect <- function(obj, ...) {
   UseMethod("detect")
 }
 
-#'@export
+#'@exportS3Method detect harbinger
 detect.harbinger <- function(obj, serie, ...) {
   return(data.frame(idx = 1:length(serie), event = rep(FALSE, length(serie)), type = ""))
 }
 
 #'@import daltoolbox
-#'@export
+#'@exportS3Method evaluate harbinger
 evaluate.harbinger <- function(obj, detection, event, evaluation = har_eval(), ...) {
   return(evaluate(evaluation, detection, event))
 }

@@ -39,7 +39,7 @@ hanr_wavelet <- function(filter = "haar") {
 #'@importFrom stats residuals
 #'@importFrom stats na.omit
 #'@importFrom wavelets modwt
-#'@export
+#'@exportS3Method detect hanr_wavelet
 detect.hanr_wavelet <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation",call. = FALSE)
 

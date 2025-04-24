@@ -36,7 +36,7 @@ hanr_garch <- function() {
 #'@importFrom stats na.omit
 #'@importFrom rugarch ugarchspec
 #'@importFrom rugarch ugarchfit
-#'@export
+#'@exportS3Method detect hanr_garch
 detect.hanr_garch <- function(obj, serie, ...) {
   obj <- obj$har_store_refs(obj, serie)
 

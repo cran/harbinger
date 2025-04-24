@@ -36,7 +36,7 @@ hanr_fbiad <- function(sw_size = 30) {
 
 #'@import daltoolbox
 #'@importFrom stats na.omit
-#'@export
+#'@exportS3Method detect hanr_fbiad
 detect.hanr_fbiad <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation", call. = FALSE)
 

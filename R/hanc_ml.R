@@ -50,7 +50,7 @@ hanc_ml <- function(model) {
 }
 
 #'@import daltoolbox
-#'@export
+#'@exportS3Method fit hanc_ml
 fit.hanc_ml <- function(obj, serie, ...) {
   obj$model <- daltoolbox::fit(obj$model, serie)
   return(obj)
@@ -59,7 +59,7 @@ fit.hanc_ml <- function(obj, serie, ...) {
 
 #'@importFrom stats na.omit
 #'@importFrom stats predict
-#'@export
+#'@exportS3Method detect hanc_ml
 detect.hanc_ml <- function(obj, serie, ...) {
   obj <- obj$har_store_refs(obj, serie)
   obj$serie <- adjust_data.frame(obj$serie)

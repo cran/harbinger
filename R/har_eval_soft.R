@@ -77,7 +77,7 @@ soft_scores <- function(detection, event, k){
 }
 
 #'@importFrom daltoolbox evaluate
-#'@export
+#'@exportS3Method evaluate har_eval_soft
 evaluate.har_eval_soft <- function(obj, detection, event, ...) {
   detection[is.na(detection)] <- FALSE
 

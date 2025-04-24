@@ -35,7 +35,7 @@ hcp_gft <- function() {
 
 #'@importFrom strucchange Fstats
 #'@importFrom strucchange breakpoints
-#'@export
+#'@exportS3Method detect hcp_gft
 detect.hcp_gft <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation", call. = FALSE)
 

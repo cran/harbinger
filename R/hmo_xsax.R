@@ -60,7 +60,7 @@ comp_word_entropy <- function(str) {
 #'@importFrom dplyr select
 #'@importFrom dplyr n
 #'@importFrom dplyr desc
-#'@export
+#'@exportS3Method detect hmo_xsax
 detect.hmo_xsax <- function(obj, serie, ...) {
   i <- 0
   total_count <- 0

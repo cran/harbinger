@@ -37,7 +37,7 @@ hanr_histogram <- function(density_threshold = 0.05) {
 #'@import daltoolbox
 #'@importFrom stats na.omit
 #'@importFrom graphics hist
-#'@export
+#'@exportS3Method detect hanr_histogram
 detect.hanr_histogram <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation", call. = FALSE)
 

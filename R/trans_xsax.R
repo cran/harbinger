@@ -59,7 +59,7 @@ convert_to_xsax_vec <- function(num, nbase) {
 }
 
 #'@importFrom daltoolbox transform
-#'@export
+#'@exportS3Method transform trans_xsax
 transform.trans_xsax <- function(obj, data, ...) {
   vectorNorm <- (data - base::mean(data, na.rm = TRUE)) / stats::sd(data, na.rm = TRUE)
   mybin <- binning_xsax(vectorNorm, obj$alpha)

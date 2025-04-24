@@ -35,7 +35,7 @@ hcp_binseg <- function(Q = 2) {
 }
 
 #'@importFrom changepoint cpt.meanvar
-#'@export
+#'@exportS3Method detect hcp_binseg
 detect.hcp_binseg <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation", call. = FALSE)
 

@@ -7,13 +7,12 @@
 #'@return han_autoencoder object
 #'histogram based method to detect anomalies in time series. Bins with smaller amount of observations are considered anomalies. Values below first bin or above last bin are also considered anomalies.>.
 #'@examples
-#'# setting up time series regression model
-#'#Use the same example of hanr_fbiad changing the constructor to:
-#'model <- han_autoencoder(3,1)
+#'#See an example of using `autoenc_ed` at this
+#'#https://github.com/cefet-rj-dal/harbinger/blob/master/anomalies/han_autoenc_ed
 #'@importFrom stats na.omit
 #'@importFrom daltoolbox ts_norm_gminmax
 #'@export
-han_autoencoder <- function(input_size, encode_size, encoderclass = autoenc_encode_decode, ...) {
+han_autoencoder <- function(input_size, encode_size, encoderclass = autoenc_ed, ...) {
   obj <- harbinger()
 
   obj$input_size <- input_size
@@ -29,7 +28,7 @@ han_autoencoder <- function(input_size, encode_size, encoderclass = autoenc_enco
 }
 
 #'@importFrom stats na.omit
-#'@export
+#'@exportS3Method fit han_autoencoder
 fit.han_autoencoder <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation",call. = FALSE)
 
@@ -50,7 +49,7 @@ fit.han_autoencoder <- function(obj, serie, ...) {
 #'@import daltoolbox
 #'@importFrom stats na.omit
 #'@importFrom graphics hist
-#'@export
+#'@exportS3Method detect han_autoencoder
 detect.han_autoencoder <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation", call. = FALSE)
 

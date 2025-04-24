@@ -37,7 +37,7 @@ hcp_cf_arima <- function(sw_size = NULL) {
 #'@importFrom forecast auto.arima
 #'@importFrom stats residuals
 #'@importFrom stats na.omit
-#'@export
+#'@exportS3Method fit hcp_cf_arima
 fit.hcp_cf_arima <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation",call. = FALSE)
 
@@ -62,7 +62,7 @@ fit.hcp_cf_arima <- function(obj, serie, ...) {
 #'@importFrom stats na.omit
 #'@importFrom stats residuals
 #'@importFrom forecast auto.arima
-#'@export
+#'@exportS3Method detect hcp_cf_arima
 detect.hcp_cf_arima <- function(obj, serie, ...) {
   obj <- obj$har_store_refs(obj, serie)
 

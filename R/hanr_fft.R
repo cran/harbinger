@@ -46,7 +46,7 @@ compute_cut_index <- function(freqs) {
 
 #'@importFrom stats fft
 #'@importFrom stats sd
-#'@export
+#'@exportS3Method detect hanr_fft
 detect.hanr_fft <- function(obj, serie, ...) {
   if (is.null(serie))
     stop("No data was provided for computation", call. = FALSE)

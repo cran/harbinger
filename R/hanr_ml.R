@@ -38,7 +38,7 @@ hanr_ml <- function(model, sw_size = 15) {
   return(obj)
 }
 
-#'@export
+#'@exportS3Method fit hanr_ml
 fit.hanr_ml <- function(obj, serie, ...) {
   ts <- ts_data(serie, obj$sw_size)
   io <- ts_projection(ts)
@@ -50,7 +50,7 @@ fit.hanr_ml <- function(obj, serie, ...) {
 
 #'@importFrom stats na.omit
 #'@importFrom stats predict
-#'@export
+#'@exportS3Method detect hanr_ml
 detect.hanr_ml <- function(obj, serie, ...) {
   obj <- obj$har_store_refs(obj, serie)
 

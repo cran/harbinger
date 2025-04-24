@@ -52,7 +52,7 @@ fc_roughness <- function(x) {
 #'@importFrom stats median
 #'@importFrom stats sd
 #'@importFrom hht CEEMD
-#'@export
+#'@exportS3Method detect hanr_remd
 detect.hanr_remd <- function(obj, serie, ...) {
   if (is.null(serie))
     stop("No data was provided for computation", call. = FALSE)

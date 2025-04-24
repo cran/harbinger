@@ -41,7 +41,7 @@ hanct_kmeans <- function(seq = 1, centers=NA) {
 
 #'@importFrom stats kmeans
 #'@importFrom stats na.omit
-#'@export
+#'@exportS3Method fit hanct_kmeans
 fit.hanct_kmeans <- function(obj, serie, ...) {
   if (is.na(obj$centers))
     obj$centers <- ceiling(log(length(serie), 10))
@@ -56,7 +56,7 @@ fit.hanct_kmeans <- function(obj, serie, ...) {
 }
 
 #'@importFrom stats na.omit
-#'@export
+#'@exportS3Method detect hanct_kmeans
 detect.hanct_kmeans <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation", call. = FALSE)
 

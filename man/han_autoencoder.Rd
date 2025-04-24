@@ -4,12 +4,7 @@
 \alias{han_autoencoder}
 \title{Anomaly detector using autoencoder}
 \usage{
-han_autoencoder(
-  input_size,
-  encode_size,
-  encoderclass = autoenc_encode_decode,
-  ...
-)
+han_autoencoder(input_size, encode_size, encoderclass = autoenc_ed, ...)
 }
 \arguments{
 \item{input_size}{Establish the input size for the autoencoder anomaly detector. It is the size of the output also.}
@@ -28,7 +23,6 @@ histogram based method to detect anomalies in time series. Bins with smaller amo
 Anomaly detector using autoencoder
 }
 \examples{
-# setting up time series regression model
-#Use the same example of hanr_fbiad changing the constructor to:
-model <- han_autoencoder(3,1)
+#See an example of using `autoenc_ed` at this
+#https://github.com/cefet-rj-dal/harbinger/blob/master/anomalies/han_autoenc_ed
 }
