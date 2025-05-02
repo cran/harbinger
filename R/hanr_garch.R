@@ -29,6 +29,8 @@
 hanr_garch <- function() {
   obj <- harbinger()
 
+  hutils <- harutils()
+
   class(obj) <- append("hanr_garch", class(obj))
   return(obj)
 }
@@ -41,14 +43,14 @@ detect.hanr_garch <- function(obj, serie, ...) {
   obj <- obj$har_store_refs(obj, serie)
 
   spec <- rugarch::ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(1, 1)),
-                                 mean.model = list(armaOrder = c(1, 1), include.mean = TRUE),
-                                 distribution.model = "norm")
+                              mean.model = list(armaOrder = c(1, 1), include.mean = TRUE),
+                              distribution.model = "norm")
 
   #Adjusting a model to the entire series
   model <- rugarch::ugarchfit(spec=spec, data=obj$serie, solver="hybrid")@fit
 
   #Adjustment error on the entire series
-  res <- model$sigma
+  res <- residuals(model, standardize = TRUE)
 
   res <- obj$har_distance(res)
   anomalies <- obj$har_outliers(res)

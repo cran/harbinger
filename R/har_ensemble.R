@@ -31,6 +31,7 @@ har_ensemble <- function(...) {
   obj$models <- c(list(...))
 
   hutils <- harutils()
+  obj$har_outliers_check <- NULL
   obj$har_fuzzify_detections <- hutils$har_fuzzify_detections_triangle
 
   class(obj) <- append("har_ensemble", class(obj))
@@ -41,6 +42,11 @@ har_ensemble <- function(...) {
 #'@exportS3Method fit har_ensemble
 fit.har_ensemble <- function(obj, serie, ...) {
   if(is.null(serie)) stop("No data was provided for computation",call. = FALSE)
+
+  if (is.null(obj$har_outliers_check)) {
+    hutils <- harutils()
+    obj$har_outliers_check <- hutils$har_outliers_checks_highgroup
+  }
 
   serie <- stats::na.omit(serie)
 
@@ -81,17 +87,21 @@ detect.har_ensemble <- function(obj, serie, ...) {
     }
   }
   res <- rowSums(values) # Every method has 1 vote
-  event <- res >= length(obj$models)/2
+  events <- res >= length(obj$models)/2
   type <- apply(types, 1, max)
 
-
-  type[!event] <- ""
+  type[!events] <- ""
   anomalies <- type == "anomaly"
   change_point <- type == "changepoint"
-  anomalies <- har_outliers_boxplot(anomalies)
-  anomalies <- obj$har_outliers_check(anomalies, res)
-  change_point <- har_outliers_boxplot(change_point)
-  change_point <- obj$har_outliers_check(change_point, res)
+
+  events <- obj$har_outliers(res)
+  events <- obj$har_outliers_check(events, res)
+
+  anomalies <- anomalies & events
+  change_point <- change_point & events
+
+  attr(anomalies, "threshold") <- attr(events, "threshold")
+
 
   detection <- obj$har_restore_refs(obj, anomalies = anomalies, change_point = change_point, res = res)
 
