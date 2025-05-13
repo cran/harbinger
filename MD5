@@ -1,9 +1,9 @@
-4e5996e7df9cf239178af02b6fa7518e *DESCRIPTION
+ac3c15de496c88fcbc8c3d74add3d73e *DESCRIPTION
 5da8984717eda274a8be29b2b5fb6f5b *LICENSE
-611a9343f43633b1cc1c38e7c8782342 *NAMESPACE
+3c3ca31bc6f9acd040967388b4710a6a *NAMESPACE
 5de599b3a828b8cbb6b625d314ef9bdd *R/data.R
 d4b1b9b2ed2a3bd10b868b313cd4c901 *R/globals.R
-f3dc4e644f216ab345d90e2ea9d354dd *R/han_autoencoder.R
+467d5334601e54bca1d0a77d9e37d283 *R/han_autoencoder.R
 71d7e56e068d7e24f8537ad99feb9d00 *R/hanc_ml.R
 f5cf4f51a2c898b24e18aebd72922ab7 *R/hanct_dtw.R
 9618a9b286589b38c307a5b141b25720 *R/hanct_kmeans.R
@@ -18,7 +18,7 @@ ffa15aa07824e0092bdb42fe1fa9123d *R/hanr_fft_binseg_cusum.R
 7166a9d216c633e508eb4f5ff0fb1379 *R/hanr_fft_sma.R
 e8d19cf870c8947a6ef641176bdf7bbe *R/hanr_garch.R
 b0f7c999b0e349c5b6d980fa9c68b956 *R/hanr_hist.R
-41d1428e92740fbae96979473f8acd0f *R/hanr_ml.R
+998367c181751b92d6db2d2db5c9affd *R/hanr_ml.R
 501a8559f9cc0545c96f027a9e26f4fa *R/hanr_red.R
 c65f4cbd258936cf9531c7e509ecfddd *R/hanr_remd.R
 e3d606464c3be8746d6531cd272f6034 *R/hanr_wavelet.R
@@ -48,7 +48,7 @@ aa1dfcee192ebeb5d5dbd74b2b85afd3 *R/hmu_pca.R
 54b8edc3f6a7605e155663c30bda5672 *R/mas.R
 1da1a3890cc23bc582a9358fa9b13037 *R/trans_sax.R
 89a27a83b491458ba40907314fbe7ffa *R/trans_xsax.R
-7eaf8ea5143ce51f3c5360af2a45efbc *README.md
+9c4796eead0c01ea2054a11bb57a7988 *README.md
 e9d78ace1ae748a2a4198fce3f72b66d *data/examples_anomalies.RData
 c6021d27064a11ef31bbdf1047260243 *data/examples_changepoints.RData
 237915f5732200af614bbae441149420 *data/examples_harbinger.RData
@@ -61,7 +61,7 @@ a96672dde9e5ec78bf0663789c7cd7ec *man/examples_harbinger.Rd
 2e87003136ad244b3ebe5eae6581ec1c *man/examples_motifs.Rd
 9cc86efd3917b66fcab925b934bbbb8d *man/figures/README-example-1.png
 4f581a7b27557b49e652da5e346475ff *man/figures/README-pressure-1.png
-48d87840404c285784d3fd3a997e4c72 *man/han_autoencoder.Rd
+3ac5855246912fc03118ae9de8bf0622 *man/han_autoencoder.Rd
 1784f4f68224bca35fb776fd9559cb2c *man/hanc_ml.Rd
 d285211e65ee425ddd36b774e1f7666b *man/hanct_dtw.Rd
 208f22fc4705c2aaebf8d522d4807a8b *man/hanct_kmeans.Rd
@@ -76,7 +76,7 @@ f46894bbcff7e730c2594fef6a79c3d8 *man/hanr_fft_binseg.Rd
 f367483b81a85ce525551812614b533e *man/hanr_fft_sma.Rd
 0e2a07992c533ad8737bc360b7ee366a *man/hanr_garch.Rd
 90a21c6a6787c4d431f510dd9d947dcc *man/hanr_histogram.Rd
-bf101e3cc13b0417c0f8d6d4c4816c64 *man/hanr_ml.Rd
+b63e41e77f7d1915d95e06cc743b269a *man/hanr_ml.Rd
 7c1f03e6626d1b8a4d1763354ec98a3a *man/hanr_red.Rd
 854b4ba71edf4f31a149f6faa6922b71 *man/hanr_remd.Rd
 663afcfd7443c1136e1c38f732ae9dce *man/hanr_wavelet.Rd

@@ -85,11 +85,20 @@ model <- harbinger()
 #stub detector
 detection <- detect(model, examples_anomalies$simple$serie)
 
-#plot anomalies
-har_plot(detection, examples_anomalies$simple$serie, detection)
+# filtering detected events
+library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
+print(detection |> dplyr::filter(event==TRUE))
+#> [1] idx   event type 
+#> <0 rows> (or 0-length row.names)
 ```
-
-<img src="man/figures/README-example-1.png" alt="Harbinger example figure" width="100%" />
 
 ------------------------------------------------------------------------
 
